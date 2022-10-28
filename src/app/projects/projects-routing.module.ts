@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProjectFormContainerComponent } from './project-form-container/project-form-container.component';
+import { ProjectListContainerComponent } from './project-list-container/project-list-container.component';
 import { ProjectsComponent } from './projects.component';
 
 const routes: Routes = [{
@@ -8,6 +9,18 @@ const routes: Routes = [{
   children: [
     {
       path: 'form', component: ProjectFormContainerComponent
+    },
+    {
+      path: 'list', component: ProjectListContainerComponent
+    },
+    {
+      path: ``,
+      pathMatch: `full`,
+      redirectTo: `form`
+    },
+    {
+      path: 'edit/:id',
+      component: ProjectFormContainerComponent
     },
   ]
 }];
