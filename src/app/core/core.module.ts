@@ -1,12 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MasterComponent } from './master/master.component';
+import { SidebarComponent } from './master/sidebar/sidebar.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    MasterComponent,
+    SidebarComponent
+  ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    AppRoutingModule
+  ],
+  exports: [MasterComponent]
 })
 export class CoreModule { }

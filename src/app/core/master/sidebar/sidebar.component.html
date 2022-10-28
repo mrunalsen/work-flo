@@ -1,0 +1,46 @@
+<!-- Start : Sidebar -->
+
+<div class="flex flex-col justify-between h-full bg-zinc-900 text-white whitespace-nowrap">
+    <div class="translate">
+        <!-- Brand name -->
+        <div class="flex justify-center items-center w-full p-7">
+            <div class="text-2xl font-bold">Work Flo</div>
+
+        </div>
+
+        <!-- Nav list items -->
+        <ul class="flex-col flex justify-center">
+            <li *ngFor="let items of navlist" class="p-2 hover:bg-metal">
+                <a href="" routerLink="{{items.route}}"><span class="{{items.class}}"></span> {{items.a}}</a>
+            </li>
+            <li>
+                <input type="checkbox" name="project-toggle" class="hidden" id="project-toggle" checked>
+                <div class="d-flex p-2 test flex align-items-center justify-between hover:bg-metal">
+                    <a routerLink="projects/list" class="active:bg-zinc-800"> <span class="icon-projects"></span>
+                        Projects</a>
+                    <label for="project-toggle" class="toggle-label icon-down cursor-pointer text-2xl"></label>
+                </div>
+                <ul class="sub-menu overflow-hidden  px-3">
+                    <!-- <li class=" w-full p-2 hover:bg-metal  rounded-lg transition-all duration-100"
+                        *ngFor="let items of projectList, let i = index">
+                        <a routerLink="../info" class="px-5">{{items.title}}</a>
+                    </li> -->
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Show All  Projects -->
+        <div
+            class="tw-full p-2 mt-3 mx-3 rounded-lg text-center text-blue-700  hover:bg-blue-500 font-semibold hover:text-white transition-all duration-500">
+            <a routerLink="projects/list">show all</a>
+        </div>
+    </div>
+
+    <!-- New Project button -->
+    <button
+        class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded transition duration-150 ease-in-out m-7"
+        routerLink="projects/form">
+        New Project
+    </button>
+</div>
+<!-- End : Sidebar -->
