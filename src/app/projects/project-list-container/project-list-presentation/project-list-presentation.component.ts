@@ -11,9 +11,16 @@ import { ProjectListPresenterService } from '../project-list-presenter/project-l
 })
 export class ProjectListPresentationComponent implements OnInit {
 
-  @Input() public set projectData(v: Projects[] | null) {
-    if (v)
-      this._projectData = v;
+  @Input() public set mvpclientlist(value: Projects[] | null) {
+    if (value) {
+      this._mvpList = value;
+      this.newList = value
+    }
+  }
+
+  @Input() public set projectData(res: Projects[] | null) {
+    if (res)
+      this._projectData = res;
   }
 
   public get projectData(): Projects[] {
@@ -29,6 +36,9 @@ export class ProjectListPresentationComponent implements OnInit {
   ) {
     this.delete = new EventEmitter()
   }
+  public newList: Projects[] = [];
+  private _mvpList: Projects[] = [];
+  public _mvpclientlist: Projects[] = [];
 
   ngOnInit(): void {
 

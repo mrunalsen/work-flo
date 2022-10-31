@@ -8,6 +8,7 @@ import { ProjectFormPresentationComponent } from './project-form-container/proje
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProjectListContainerComponent } from './project-list-container/project-list-container.component';
 import { ProjectListPresentationComponent } from './project-list-container/project-list-presentation/project-list-presentation.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ProjectListPresentationComponent } from './project-list-container/proje
   imports: [
     CommonModule,
     ProjectsRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class ProjectsModule { }

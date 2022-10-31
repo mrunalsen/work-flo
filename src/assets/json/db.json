@@ -37,6 +37,33 @@
       "billingType": "Daily",
       "status": "Completed",
       "id": 7
+    },
+    {
+      "title": "Harry Potter",
+      "category": "Web of Wizards",
+      "summary": "",
+      "detail": "",
+      "billingType": "Daily",
+      "status": "Approved",
+      "id": 8
+    },
+    {
+      "title": "Google",
+      "category": "Sci Fi Website",
+      "summary": "",
+      "detail": "",
+      "billingType": "Fixed Price",
+      "status": "Pending Approval",
+      "id": 9
+    },
+    {
+      "title": "Amazon",
+      "category": "E-com Website",
+      "summary": "",
+      "detail": "",
+      "billingType": "Milestone billing",
+      "status": "Okay to Start",
+      "id": 10
     }
   ]
 }
