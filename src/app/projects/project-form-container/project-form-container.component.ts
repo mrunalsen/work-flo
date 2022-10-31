@@ -35,14 +35,14 @@ export class ProjectFormContainerComponent implements OnInit {
   // }
   public addData(form: Projects) {
     this.projectService.addProjectData(form).subscribe((res) => {
-      this.route.navigateByUrl('/projects/list')
+      this.route.navigateByUrl('/projects')
       this.updateList.nextMethod(true);
     })
   }
   public onEdit(form: Projects) {
     this.projectService.editProjectData(form, this.id).subscribe((res: any) => {
       alert('Edit Success')
-      this.route.navigateByUrl('projects/list')
+      this.route.navigateByUrl('projects')
     })
   }
 }

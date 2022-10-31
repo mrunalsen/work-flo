@@ -1,0 +1,42 @@
+{
+  "project": [
+    {
+      "title": "Harry Potter",
+      "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo nam dignissimos officiis. Deleniti nulla perspiciatis, eaque totam earum quae reprehenderit.",
+      "category": "Web of Wizards",
+      "summary": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo nam dignissimos officiis. Deleniti nulla perspiciatis, eaque totam earum quae reprehenderit.",
+      "detail": "Hogwarts info",
+      "billingType": "Daily",
+      "status": "Requires Feedback",
+      "id": 3
+    },
+    {
+      "title": "star wars",
+      "info": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur reiciendis perferendis dolores laudantium quis eveniet modi minus animi quidem saepe!",
+      "category": "Sci Fi Website",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur reiciendis perferendis dolores laudantium quis eveniet modi minus animi quidem saepe!",
+      "detail": "Galaxy Documentary",
+      "billingType": "Hourly rate",
+      "status": "In Testing",
+      "id": 4
+    },
+    {
+      "title": "Harry Potter",
+      "category": "Sci Fi Website",
+      "summary": "",
+      "detail": "",
+      "billingType": "Fixed Price",
+      "status": "Live",
+      "id": 6
+    },
+    {
+      "title": "Harry Potter",
+      "category": "Web of Wizards",
+      "summary": "",
+      "detail": "Lorem Ipsum",
+      "billingType": "Daily",
+      "status": "Completed",
+      "id": 7
+    }
+  ]
+}

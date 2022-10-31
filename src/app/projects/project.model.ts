@@ -1,7 +1,6 @@
 export class Projects {
     public id: number
     public title: string;
-    public info: string;
     public category: string;
     public summary: string;
     public detail: string;
@@ -11,7 +10,6 @@ export class Projects {
     constructor(
         id: number,
         title: string,
-        info: string,
         category: string,
         summary: string,
         detail: string,
@@ -20,7 +18,6 @@ export class Projects {
     ) {
         this.id = id
         this.title = title
-        this.info = info
         this.category = category
         this.summary = summary
         this.detail = detail

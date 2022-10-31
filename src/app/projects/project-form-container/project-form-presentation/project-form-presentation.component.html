@@ -3,26 +3,53 @@
         <h2 class="text-center">{{formTitle}}</h2>
     </div>
     <form class="p-5 m-auto w-1/2" [formGroup]="projectForm">
+        <!-- Start : Project Title -->
         <div class="mb-3 flex flex-col">
             <label for="title" class="form-label">Project Title</label>
-            <input type="text" name="title" id="title"
+            <input type="text" name="title" id="title" aria-describedby="helper-text-explanation"
                 class="form-control text-black focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:rounded-md bg-slate-100 rounded-md p-2"
-                formControlName="title">
+                formControlName="title" maxlength="50">
+            <!-- validations -->
+            <div *ngIf="getcontrols['title'].touched && getcontrols['title'].invalid || formsubmitted">
+                <small class="text-rose-500"
+                    *ngIf="getcontrols['title'].errors && getcontrols['title'].errors['required']">
+                    *project title is required
+                </small>
+                <small class="text-rose-500"
+                    *ngIf="getcontrols['title'].errors && getcontrols['title'].errors['minlength']">
+                    *minimum length should be 4
+                </small>
+                <small class="text-rose-500"
+                    *ngIf="getcontrols['title'].errors && getcontrols['title'].errors['maxlength']">
+                    *max length is 50
+                </small>
+            </div>
+            <!-- validations -->
         </div>
-        <div class="mb-3 flex flex-col">
-            <label for="info" class="form-label">Project Info</label>
-            <input type="text" name="info" id="info"
-                class="form-control text-black focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:rounded-md bg-slate-100 rounded-md p-2"
-                formControlName="info">
-        </div>
-        <!-- Project CATEGORY: start -->
+        <!-- End : Project Title -->
+
+        <!-- Start : Project CATEGORY -->
         <div class="mb-3 flex flex-col">
             <label for="category" class="form-label">Project Category</label>
             <input type="text" name="category" id="category"
                 class="form-control text-black focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:rounded-md bg-slate-100 rounded-md p-2"
                 placeholder="eg: Corporate Website" formControlName="category">
+            <div *ngIf="getcontrols['category'].touched && getcontrols['category'].invalid || formsubmitted">
+                <small class="text-rose-500"
+                    *ngIf="getcontrols['category'].errors && getcontrols['category'].errors['required']">
+                    *project category is required
+                </small>
+                <small class="text-rose-500"
+                    *ngIf="getcontrols['category'].errors &&getcontrols['category'].errors['minlength']">
+                    *minimum length should be 4
+                </small>
+                <small class="text-rose-500"
+                    *ngIf="getcontrols['category'].errors && getcontrols['category'].errors['maxlength']">
+                    *max length is 50
+                </small>
+            </div>
         </div>
-        <!-- Project CATEGORY: end -->
+        <!-- End : Project CATEGORY -->
 
         <!-- Project SUMMARY: start -->
         <div class="mb-3 flex flex-col">
@@ -36,9 +63,10 @@
         <!-- Project INFO: start -->
         <div class="mb-3 flex flex-col">
             <label for="info" class="form-label">Detailed Info</label>
-            <input type="text" name="info" id="info"
+            <textarea name="info" id="info" rows="4"
                 class="form-control text-black focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:rounded-md bg-slate-100 rounded-md p-2"
                 formControlName="detail">
+                </textarea>
         </div>
         <!-- Project INFO: end -->
 
@@ -46,9 +74,11 @@
         <div class="mb-3 flex flex-col">
             <label for="billing" class="form-label"> Billing Type</label>
             <select
-                class="form-select focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:rounded-md bg-slate-100 rounded-md p-2"
+                class="form-select focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:rounded-md bg-slate-100 rounded-md p-2 text-black"
                 id="billing" formControlName="billingType">
-                <option [value]="option" *ngFor="let option of billing">{{option}}</option>
+                <option class="bg-zinc-900 text-white" [value]="option" *ngFor="let option of billing">
+                    {{option}}
+                </option>
             </select>
         </div>
         <!-- Billing TYPE: end -->
@@ -57,9 +87,10 @@
         <div class="mb-3 flex flex-col">
             <label for="status" class="form-label">Project Status</label>
             <select
-                class="form-select focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:rounded-md bg-slate-100 rounded-md p-2"
+                class="form-select focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:rounded-md bg-slate-100 rounded-md p-2 text-black"
                 id="status" formControlName="status">
-                <option [value]="option" *ngFor="let option of status">{{option}}</option>
+                <option class="bg-zinc-900 text-white" [value]="option" *ngFor="let option of status">{{option}}
+                </option>
             </select>
         </div>
         <!-- Project STATUS: end -->
@@ -69,7 +100,7 @@
             <button type="submit" (click)="onCancel()"
                 class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">Cancel</button>
             <button type="submit" (click)="onSubmit()"
-                class="inline-block px-6 py-2.5 bg-blue-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Submit</button>
+                class="inline-block px-6 py-2.5 bg-blue-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out disabled:bg-rose-400">Submit</button>
         </div>
         <!-- Action button : end -->
     </form>

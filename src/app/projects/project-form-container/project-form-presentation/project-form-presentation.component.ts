@@ -12,6 +12,7 @@ export class ProjectFormPresentationComponent implements OnInit {
   billing: string[];
   status: string[];
   admin: boolean = false
+  public formsubmitted: boolean;
 
   @Input() public set projectData(value: Projects[] | null) {
     if (value) {
@@ -38,6 +39,7 @@ export class ProjectFormPresentationComponent implements OnInit {
     this.formTitle = 'Create Project'
     this.add = new EventEmitter()
     this.edit = new EventEmitter()
+    this.formsubmitted = false
     this.billing = [
       'Fixed Price',
       'Daily',
@@ -76,11 +78,17 @@ export class ProjectFormPresentationComponent implements OnInit {
       this.formTitle === 'Create Project' ? this.add.emit(res) : this.edit.emit(res)
     })
   }
+  get getcontrols() {
+    return this.projectForm.controls
+  }
+
   onSubmit() {
-    this.projectFormPresenter.onSubmit(this.projectForm)
+    this.formsubmitted = !this.projectForm.valid
+    if (!this.formsubmitted)
+      this.projectFormPresenter.onSubmit(this.projectForm)
     console.log(this.projectForm.value);
   }
   onCancel() {
-    this.route.navigateByUrl('/projects/list')
+    this.route.navigateByUrl('/projects')
   }
 }
