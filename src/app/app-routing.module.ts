@@ -6,6 +6,9 @@ const routes: Routes = [
   {
     path: '', component: MasterComponent
   },
+  // {
+  //   path: '', component: MasterComponent
+  // },
   { path: 'projects', loadChildren: () => import('./projects/projects.module').then(m => m.ProjectsModule) }
 ];
 

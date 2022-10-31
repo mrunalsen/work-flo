@@ -8,15 +8,15 @@ const routes: Routes = [{
   path: '', component: ProjectsComponent,
   children: [
     {
-      path: 'form', component: ProjectFormContainerComponent
-    },
-    {
-      path: 'list', component: ProjectListContainerComponent
-    },
-    {
       path: ``,
       pathMatch: `full`,
-      redirectTo: `form`
+      redirectTo: `list`
+    },
+    {
+      path: '', component: ProjectListContainerComponent
+    },
+    {
+      path: 'form', component: ProjectFormContainerComponent
     },
     {
       path: 'edit/:id',
