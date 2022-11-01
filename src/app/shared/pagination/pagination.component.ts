@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@
 })
 export class PaginationComponent implements OnInit {
 
-  @Input() items!: Array<any>;
+  @Input() items: Array<any>;
   @Output() changePage = new EventEmitter<any>();
   @Input() initialPage = 1;
   @Input() itemsPerPage = 10;
@@ -31,10 +31,10 @@ export class PaginationComponent implements OnInit {
 
   setPage(page: number) {
     // get new pager object for specified page
-    this.pager = this.paginate(this.items.length, page, this.itemsPerPage, this.maxPages);
+    this.pager = this.paginate(this.items?.length, page, this.itemsPerPage, this.maxPages);
 
     // get new page of items from items array
-    var pageOfItems = this.items.slice(this.pager.startIndex, this.pager.endIndex + 1);
+    var pageOfItems = this.items?.slice(this.pager.startIndex, this.pager.endIndex + 1);
 
     console.log(pageOfItems, 'page of Index here')
     // call change page function in parent component
