@@ -1,9 +1,9 @@
 <div class="h-full overflow-x-hidden overflow-y-auto p-7 md:bg-metal bg-zinc-900 text-white">
     <!-- Table : Start -->
-    <div class="hidden md:flex flex-col ">
-        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                <div class="overflow-hidden">
+    <div class="h-full hidden md:flex flex-col ">
+        <div class="h-full overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="flex flex-col justify-between h-full px-5 overflow-hidden">
+                <div class="overflow-auto">
                     <table class="min-w-full">
                         <thead class="border-b">
                             <tr>
@@ -25,7 +25,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="border-b hover:bg-metal-500" *ngFor="let items of projectData, let i = index">
+                            <tr class="border-b hover:bg-metal-500" *ngFor="let items of newList, let i = index">
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">{{i + 1}}</td>
                                 <td class="text-sm font-light px-6 py-4 whitespace-nowrap">
                                     <a routerLink="../info">{{items.title}}</a>
@@ -46,6 +46,9 @@
                         </tbody>
                     </table>
                 </div>
+                <app-pagination [items]="projectData" [itemsPerPage]="10" (changePage)="changePage($event)"
+                    class="flex justify-center">
+                </app-pagination>
             </div>
         </div>
     </div>
@@ -77,6 +80,6 @@
             </div>
         </div>
     </div>
-    <!-- <app-pagination [items]="mvpclientlist" [itemsPerPage]="8" (changePage)="changePage($event)" class="d-flex justify-content-center align-items-center"></app-pagination> -->
+
     <!-- Card : End -->
 </div>

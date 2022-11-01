@@ -9,7 +9,7 @@ export class PaginationComponent implements OnInit {
   @Input() items!: Array<any>;
   @Output() changePage = new EventEmitter<any>();
   @Input() initialPage = 1;
-  @Input() itemsPerPage = 5;
+  @Input() itemsPerPage = 10;
   @Input() maxPages = 10;
 
   pager: any = {};
@@ -17,7 +17,7 @@ export class PaginationComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if (this.items && this.items.length) {
+    if (this.items && this.items?.length) {
       this.setPage(this.initialPage);
     }
   }
@@ -36,7 +36,7 @@ export class PaginationComponent implements OnInit {
     // get new page of items from items array
     var pageOfItems = this.items.slice(this.pager.startIndex, this.pager.endIndex + 1);
 
-    // console.log(pageOfItems,'page pf Index here')
+    console.log(pageOfItems, 'page of Index here')
     // call change page function in parent component
 
     this.changePage.emit(pageOfItems);

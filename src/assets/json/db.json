@@ -64,6 +64,42 @@
       "billingType": "Milestone billing",
       "status": "Okay to Start",
       "id": 10
+    },
+    {
+      "title": "Flipkart",
+      "category": "E-com Website",
+      "summary": "",
+      "detail": "",
+      "billingType": "Fixed Price",
+      "status": "Live",
+      "id": 11
+    },
+    {
+      "title": "Jio Mart",
+      "category": "E-com Website",
+      "summary": "",
+      "detail": "",
+      "billingType": "Daily",
+      "status": "Okay to Start",
+      "id": 12
+    },
+    {
+      "title": "Voot",
+      "category": "Streaming Service",
+      "summary": "",
+      "detail": "",
+      "billingType": "Hourly rate",
+      "status": "Approved",
+      "id": 13
+    },
+    {
+      "title": "Netflix",
+      "category": "Streaming Service",
+      "summary": "",
+      "detail": "",
+      "billingType": "Hourly rate",
+      "status": "In Planning",
+      "id": 14
     }
   ]
 }
