@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProjectListContainerComponent } from './project-list-container/project-list-container.component';
 import { ProjectListPresentationComponent } from './project-list-container/project-list-presentation/project-list-presentation.component';
 import { SharedModule } from '../shared/shared.module';
+import { CardPresentationComponent } from './project-list-container/card-presentation/card-presentation.component';
+import { TablePresentationComponent } from './project-list-container/table-presentation/table-presentation.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { SharedModule } from '../shared/shared.module';
     ProjectFormContainerComponent,
     ProjectFormPresentationComponent,
     ProjectListContainerComponent,
-    ProjectListPresentationComponent
+    ProjectListPresentationComponent,
+    CardPresentationComponent,
+    TablePresentationComponent
   ],
   imports: [
     CommonModule,
