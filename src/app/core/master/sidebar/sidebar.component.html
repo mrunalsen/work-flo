@@ -1,29 +1,46 @@
 <!-- Start : Sidebar -->
 
-<div class="flex flex-col justify-between h-full bg-zinc-900 text-white whitespace-nowrap">
-    <div class="translate">
+<input type="checkbox" name="sidebar-toggle" id="sidebar-toggle" class="hidden">
+<aside
+    class="aside flex flex-col justify-between h-full bg-zinc-900 text-white whitespace-nowrap transition-all duration-300">
+    <div>
         <!-- Brand name -->
-        <div class="flex justify-center items-center w-full p-7">
-            <div class="text-2xl font-bold">Work Flo</div>
+        <div class="flex items-center w-full p-5">
+            <label for="sidebar-toggle" class="icon-menu cursor-pointer text-xl">
+            </label>
+            <a href="#" class="nav-text w-full text-4xl text-center">
+                <span>Work</span><span class="text-blue-500">Flo</span>
+            </a>
         </div>
 
         <!-- Nav list items -->
         <ul class="flex-col flex justify-center">
-            <li *ngFor="let items of navlist" class="p-2 hover:bg-metal">
-                <a href="" routerLink="{{items.route}}"><span class="{{items.class}}"></span> {{items.a}}</a>
+            <li *ngFor="let items of navlist" class="p-2 hover:bg-metal hover:text-blue-500">
+                <a class="flex items-center" routerLink="{{items.route}}">
+                    <span class="{{items.class}} p-3 transition-all duration-300"></span>
+                    <span class="nav-text">{{items.a}}</span>
+                </a>
             </li>
             <li>
                 <input type="checkbox" name="project-toggle" class="hidden" id="project-toggle" checked>
-                <div class="d-flex p-2 test flex align-items-center justify-between hover:bg-metal">
-                    <a routerLink="projects" class="active:bg-zinc-800"> <span class="icon-projects"></span>
-                        Projects</a>
+                <div class="sibling p-2 test flex align-middle justify-between hover:bg-metal hover:text-blue-500">
+                    <a routerLink="projects" class="flex items-center w-full">
+                        <span class="icon-projects p-3 transition-all duration-300"></span>
+                        <span class="nav-text">Projects</span>
+                    </a>
                     <label for="project-toggle"
-                        class="toggle-label icon-down cursor-pointer text-blue-500 hover:bg-blue-500 hover:text-white transition-all duration-150 rounded text-2xl"></label>
+                        class="toggle-label cursor-pointer flex align-middle justify-center p-2 transition-all duration-300">
+                        <span
+                            class="icon-right text-blue-500 hover:bg-blue-500 hover:text-white transition-all duration-150 rounded text-2xl">
+                        </span>
+                    </label>
                 </div>
                 <ul class="sub-menu overflow-hidden px-3">
-                    <li class=" w-full p-2 hover:bg-metal  rounded-lg transition-all duration-100"
+                    <li class=" w-full p-2 hover:bg-metal hover:text-blue-500 rounded-lg transition-all duration-100"
                         *ngFor="let items of projectList, let i = index">
-                        <a routerLink="../info" class="px-5">{{items.title}}</a>
+                        <a routerLink="../info" class="px-5 flex">
+                            <span class="nav-text">{{items.title}}</span>
+                        </a>
                     </li>
                 </ul>
             </li>
@@ -31,16 +48,16 @@
 
         <!-- Show All  Projects -->
         <div
-            class="tw-full p-2 mt-3 mx-3 rounded-lg text-center text-blue-500  hover:bg-blue-500 font-semibold hover:text-white transition-all duration-500">
+            class="nav-text tw-full p-2 mt-3 mx-3 rounded-lg text-center text-blue-500  hover:bg-blue-500 font-semibold hover:text-white transition-all duration-500">
             <a routerLink="projects">SHOW ALL</a>
         </div>
     </div>
 
     <!-- New Project button -->
     <button
-        class="bg-transparent hover:bg-blue-500 text-blue-500 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded transition duration-150 ease-in-out m-7"
+        class="nav-text bg-transparent hover:bg-blue-500 text-blue-500 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded transition duration-150 ease-in-out m-7"
         routerLink="projects/form">
         NEW PROJECT
     </button>
-</div>
+</aside>
 <!-- End : Sidebar -->
