@@ -1,25 +1,43 @@
-.sidebar {
-    flex: 0 0 250px;
+.aside {
+    width: 250px;
+
+    .nav-text {
+        white-space: nowrap;
+        transform: translateX(0);
+        transition: .4s all;
+    }
 }
 
-#sidebar-toggle{
+
+#sidebar-toggle {
     &:checked {
-         &~.sidebar{
-        flex: 0 0 0;
-    }
+        &~.aside {
+            width: 60px;
+
+            .nav-text {
+                transform: translateX(100px);
+            }
+        }
     }
 }
 
 #project-toggle {
-    
+
     &~.sub-menu {
         max-height: 0;
         transition: all 0.6s ease-in-out;
     }
 
     &:checked {
+
+        &~.sibling {
+            &>.toggle-label {
+                transform: rotate(90deg);
+            }
+        }
+
         &~.sub-menu {
-            max-height: 500px;
+            max-height: 322px;
             border-radius: 20px;
             transition: all 1s ease-in-out;
         }
