@@ -7,6 +7,7 @@
                 routerLink="form">
                 NEW PROJECT
             </button>
+            <input type="search" name="search" id="search" class="text-black" [(ngModel)]="query">
         </div>
         <div class="h-full hidden md:flex flex-col ">
             <div class="h-full overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -33,7 +34,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="border-b hover:bg-metal-500" *ngFor="let items of newList, let i = index">
+                                <tr class="border-b hover:bg-metal-500"
+                                    *ngFor="let items of newList | search: query, let i = index">
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">{{i + 1}}</td>
                                     <td class="text-sm font-light px-6 py-4 whitespace-nowrap">
                                         <a routerLink="../info">{{items.title}}</a>

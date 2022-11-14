@@ -5,7 +5,7 @@ import { ProjectsRoutingModule } from './projects-routing.module';
 import { ProjectsComponent } from './projects.component';
 import { ProjectFormContainerComponent } from './project-form-container/project-form-container.component';
 import { ProjectFormPresentationComponent } from './project-form-container/project-form-presentation/project-form-presentation.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProjectListContainerComponent } from './project-list-container/project-list-container.component';
 import { ProjectListPresentationComponent } from './project-list-container/project-list-presentation/project-list-presentation.component';
 import { SharedModule } from '../shared/shared.module';
@@ -27,7 +27,8 @@ import { TablePresentationComponent } from './project-list-container/table-prese
     CommonModule,
     ProjectsRoutingModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ]
 })
 export class ProjectsModule { }

@@ -10,7 +10,7 @@ import { ProjectListPresenterService } from '../project-list-presenter/project-l
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectListPresentationComponent implements OnInit {
-
+  query: string
   @Input() public set projectData(res: Projects[] | null) {
     if (res)
       if (!this._newList) {
