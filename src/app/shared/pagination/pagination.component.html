@@ -1,4 +1,4 @@
-<ul *ngIf="pager.pages && pager.pages.length" class="flex justify-center cursor-pointer p-5">
+<ul *ngIf="pager.pages && pager.pages.length" class="flex justify-center cursor-pointer select-none p-5">
     <!-- First page -->
     <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item first-item md:hidden">
         <a (click)="setPage(1)"

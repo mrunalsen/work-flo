@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UpdateListService } from 'src/app/shared/update-list.service';
+import { UpdateListService } from 'src/app/shared/services/update-list.service';
 import { ProjectListService } from '../../project-list.service';
 
 @Component({
@@ -17,11 +17,11 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this._projectList.getProjectData().subscribe(res => {
-      this.projectList = res
+      this.projectList = res;
     })
     this.updateList.update_list.subscribe((val) => {
       this._projectList.getProjectData().subscribe(res => {
-        this.projectList = res
+        this.projectList = res;
       })
     })
   }
