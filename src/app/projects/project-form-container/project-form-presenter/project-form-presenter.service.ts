@@ -3,9 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { Projects } from '../../project.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProjectFormPresenterService {
   private projectFormData: Subject<Projects>
   public projectFormData$: Observable<Projects>

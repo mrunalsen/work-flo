@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { UpdateListService } from 'src/app/shared/update-list.service';
+import { UpdateListService } from 'src/app/shared/services/update-list.service';
 import { Projects } from '../project.model';
 import { ProjectsService } from '../projects.service';
 

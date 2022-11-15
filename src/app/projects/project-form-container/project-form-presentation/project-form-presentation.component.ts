@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Projects } from '../../project.model';
@@ -6,19 +6,21 @@ import { ProjectFormPresenterService } from '../project-form-presenter/project-f
 
 @Component({
   selector: 'app-project-form-presentation',
-  templateUrl: './project-form-presentation.component.html'
+  templateUrl: './project-form-presentation.component.html',
+  viewProviders: [ProjectFormPresenterService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectFormPresentationComponent implements OnInit {
   billing: string[];
   status: string[];
-  admin: boolean = false
+  admin: boolean = false;
   public formsubmitted: boolean;
 
   @Input() public set projectData(value: Projects[] | null) {
     if (value) {
       this.formTitle = 'Edit Project'
       this.projectForm.patchValue(value);
-      this._projectData = value
+      this._projectData = value;
     }
   }
   public get projectTitleData(): Projects[] | null {
@@ -28,18 +30,18 @@ export class ProjectFormPresentationComponent implements OnInit {
   @Output() add: EventEmitter<Projects>;
   @Output() edit: EventEmitter<Projects>;
   public projectForm: FormGroup;
-  public formTitle: string
-  private _projectData!: Projects[]
+  public formTitle: string;
+  private _projectData!: Projects[];
 
   constructor(
     private projectFormPresenter: ProjectFormPresenterService,
     private route: Router,
   ) {
-    this.projectForm = this.projectFormPresenter.buildform()
-    this.formTitle = 'Create Project'
-    this.add = new EventEmitter()
-    this.edit = new EventEmitter()
-    this.formsubmitted = false
+    this.projectForm = this.projectFormPresenter.buildform();
+    this.formTitle = 'Create Project';
+    this.add = new EventEmitter();
+    this.edit = new EventEmitter();
+    this.formsubmitted = false;
     this.billing = [
       'Fixed Price',
       'Daily',
@@ -75,20 +77,20 @@ export class ProjectFormPresentationComponent implements OnInit {
   ngOnInit(): void {
     this.projectFormPresenter.projectFormData$.subscribe((res) => {
       // this.add.emit(res)
-      this.formTitle === 'Create Project' ? this.add.emit(res) : this.edit.emit(res)
+      this.formTitle === 'Create Project' ? this.add.emit(res) : this.edit.emit(res);
     })
   }
   get getcontrols() {
-    return this.projectForm.controls
+    return this.projectForm.controls;
   }
 
   onSubmit() {
-    this.formsubmitted = !this.projectForm.valid
+    this.formsubmitted = !this.projectForm.valid;
     if (!this.formsubmitted)
-      this.projectFormPresenter.onSubmit(this.projectForm)
-    console.log(this.projectForm.value);
+      this.projectFormPresenter.onSubmit(this.projectForm);
+    // console.log(this.projectForm.value);
   }
   onCancel() {
-    this.route.navigateByUrl('/projects')
+    this.route.navigateByUrl('/projects');
   }
 }

@@ -11,6 +11,7 @@ import { ProjectListPresentationComponent } from './project-list-container/proje
 import { SharedModule } from '../shared/shared.module';
 import { CardPresentationComponent } from './project-list-container/card-presentation/card-presentation.component';
 import { TablePresentationComponent } from './project-list-container/table-presentation/table-presentation.component';
+import { ProjectsService } from './projects.service';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { TablePresentationComponent } from './project-list-container/table-prese
     ProjectListContainerComponent,
     ProjectListPresentationComponent,
     CardPresentationComponent,
-    TablePresentationComponent
+    TablePresentationComponent,
   ],
   imports: [
     CommonModule,
@@ -29,6 +30,9 @@ import { TablePresentationComponent } from './project-list-container/table-prese
     ReactiveFormsModule,
     SharedModule,
     FormsModule
+  ],
+  providers: [
+    ProjectsService
   ]
 })
 export class ProjectsModule { }

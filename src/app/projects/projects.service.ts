@@ -4,9 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Projects } from './project.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProjectsService {
   apiLink: string;
 
