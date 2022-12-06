@@ -10,14 +10,28 @@
 
 
 #sidebar-toggle {
+    &~.aside {
+        .flex>.avatar {
+            transition: all 0.3s ease-in-out;
+        }
+    }
+
     &:checked {
         &~.aside {
             width: 60px;
 
             .nav-text {
                 transform: translateX(100px);
+
             }
+
+            .flex>.avatar {
+                height: 18px;
+                transition: all 0.3s ease-in-out;
+            }
+
         }
+
     }
 }
 
