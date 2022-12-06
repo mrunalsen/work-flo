@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { AppRoutingModule } from '../app-routing.module';
+import { SharedModule } from '../shared/shared.module';
 import { MasterComponent } from './master/master.component';
 import { SidebarComponent } from './master/sidebar/sidebar.component';
-import { AppRoutingModule } from '../app-routing.module';
-import { ProjectListService } from './project-list.service';
-import { SharedModule } from '../shared/shared.module';
+import { ProjectListService } from './services/project-list.service';
 
 
 
@@ -16,7 +17,8 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    OAuthModule.forRoot()
   ],
   exports: [
     MasterComponent,
