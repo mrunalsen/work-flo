@@ -1,6 +1,6 @@
 <!-- Start : Sidebar -->
 
-<input type="checkbox" name="sidebar-toggle" id="sidebar-toggle" class="hidden" checked>
+<input type="checkbox" name="sidebar-toggle" id="sidebar-toggle" class="hidden">
 <aside
     class="aside flex flex-col justify-between h-full bg-zinc-900 text-white whitespace-nowrap transition-all duration-300">
     <div>
@@ -11,6 +11,13 @@
             <a href="#" class="nav-text w-full text-4xl text-center">
                 <span>Work</span><span class="text-blue-500">Flo</span>
             </a>
+        </div>
+        <div class="flex">
+            <img src="{{User?.info.picture}}" alt="Avatar" class="avatar h-14 object-cover rounded-md border">
+            <div class="flex flex-col">
+                <p>{{User?.info?.name}}</p>
+                <p class="text-xs">{{User?.info?.email}}</p>
+            </div>
         </div>
 
         <!-- Nav list items -->
@@ -58,6 +65,11 @@
         class="nav-text bg-transparent hover:bg-blue-500 text-blue-500 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded transition duration-150 ease-in-out m-7"
         routerLink="projects/form">
         NEW PROJECT
+    </button>
+    <button
+        class="nav-text bg-transparent hover:bg-blue-500 text-blue-500 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded transition duration-150 ease-in-out m-7"
+        (click)="logOut()">
+        Log Out
     </button>
 </aside>
 <!-- End : Sidebar -->
