@@ -9,7 +9,8 @@ export class ProjectListService {
   apiLink: string;
 
   constructor(private http: HttpClient) {
-    this.apiLink = environment.baseURL;
+    // this.apiLink = environment.baseURL;
+    this.apiLink = 'http://localhost:3000';
   }
   public getProjectData(): Observable<Projects[]> {
     return this.http.get<Projects[]>(`${this.apiLink}/project`);
